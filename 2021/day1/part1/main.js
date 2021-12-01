@@ -2,7 +2,7 @@ const $ = require('jquery');
 const fs = require('fs')
 const readline = require('readline');
 const readInterface = readline.createInterface({
-    input: fs.createReadStream('challenge1/input.txt'),
+    input: fs.createReadStream('2021/day1/part1/input.txt'),
     console: false
 });
 
