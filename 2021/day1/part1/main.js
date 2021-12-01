@@ -1,4 +1,3 @@
-const $ = require('jquery');
 const fs = require('fs')
 const readline = require('readline');
 const readInterface = readline.createInterface({
@@ -13,7 +12,7 @@ var increases = 0;
 readInterface.on('line', function(line) {
     depth = parseInt(line);
 
-    if (lastDepth != 0) {
+    if (lastDepth > 0) {
         if (depth > lastDepth) {
             increases++;
             console.log(`increased depth! (${depth}) ${increases}`);
