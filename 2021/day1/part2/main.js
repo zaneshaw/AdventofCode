@@ -1,5 +1,4 @@
 const fs = require('fs')
-const readline = require('readline');
 
 fs.readFile('2021/day1/part2/input.txt', 'utf8', (err, data) => {
     var decreases = 0;
