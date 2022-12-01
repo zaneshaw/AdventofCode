@@ -1,5 +1,5 @@
 const prompts = require("prompts");
-const kolorist = require("kolorist");
+const k = require("kolorist");
 const fs = require("node:fs");
 const path = require("node:path");
 const data = require("./data.json");
@@ -44,8 +44,15 @@ const schema = [
 		path.join(__dirname, response.day.data),
 		"utf8",
 		(err, data) => {
+			const start = process.hrtime();
 			const res = part.run(data);
-			console.log(`${kolorist.bold("🏁 Result")}${kolorist.gray(":")} ${res}`);
+			const end = process.hrtime(start);
+			const endNano = end[1] + end[0] * 1000000000;
+			const endMs = endNano / 1000000;
+
+			console.log(
+				`${k.bold("🏁 Result")}${k.gray(":")} ${res} (${endMs}ms)`
+			);
 		}
 	);
 })();
