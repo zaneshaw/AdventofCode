@@ -36,23 +36,33 @@ const schema = [
 	},
 ];
 
+let reqArgs = 3;
+
 (async () => {
-	const response = await prompts(schema);
-	const part = require(response.part);
-
-	fs.readFile(
-		path.join(__dirname, response.day.data),
-		"utf8",
-		(err, data) => {
-			const start = process.hrtime();
-			const res = part.run(data);
-			const end = process.hrtime(start);
-			const endNano = end[1] + end[0] * 1000000000;
-			const endMs = endNano / 1000000;
-
-			console.log(
-				`${k.bold("🏁 Result")}${k.gray(":")} ${res} (${endMs}ms)`
-			);
+	let day;
+	let partScript;
+	if (process.argv.length == 2 + reqArgs) {
+		const args = process.argv.slice(2);
+		try {
+			day = data[args[0]][args[1] - 1];
+			partScript = require(day.parts[args[2] - 1]);
+		} catch (err) {
+			console.error("Invalid arguments!");
+			return;
 		}
-	);
+	} else {
+		const response = await prompts(schema);
+		partScript = require(response.part);
+		day = response.day;
+	}
+
+	fs.readFile(path.join(__dirname, day.data), "utf8", (err, data) => {
+		const start = process.hrtime();
+		const res = partScript.run(data);
+		const end = process.hrtime(start);
+		const endNano = end[1] + end[0] * 1000000000;
+		const endMs = endNano / 1000000;
+
+		console.log(`${k.bold("🏁 Result")}${k.gray(":")} ${res} (${endMs}ms)`);
+	});
 })();
