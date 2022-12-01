@@ -17,7 +17,7 @@ const schema = [
 		message: "What day?",
 		choices: (prev) =>
 			data[prev].map((x, i) => {
-				return { title: `Day ${i + 1}`, value: x };
+				return { title: `Day ${i + 1} - ${data[prev][i].name}`, value: x };
 			}),
 	},
 	{
@@ -25,7 +25,7 @@ const schema = [
 		name: "part",
 		message: "What part?",
 		choices: (prev) =>
-			prev.map((x, i) => {
+			prev.parts.map((x, i) => {
 				return { title: `Part ${i + 1}`, value: x };
 			}),
 	},
