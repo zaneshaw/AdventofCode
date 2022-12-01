@@ -1,4 +1,5 @@
 const prompts = require("prompts");
+const fs = require("node:fs");
 const path = require("node:path");
 const data = require("./data.json");
 
@@ -17,7 +18,10 @@ const schema = [
 		message: "What day?",
 		choices: (prev) =>
 			data[prev].map((x, i) => {
-				return { title: `Day ${i + 1} - ${data[prev][i].name}`, value: x };
+				return {
+					title: `Day ${i + 1} - ${data[prev][i].name}`,
+					value: x,
+				};
 			}),
 	},
 	{
@@ -33,5 +37,9 @@ const schema = [
 
 (async () => {
 	const response = await prompts(schema);
-	const task = require(response.part);
+	const part = require(response.part);
+
+	fs.readFile(path.join(__dirname, response.day.data), "utf8", (err, data) => {
+		console.log(`Result: ${part.run(data)}`);
+	});
 })();
