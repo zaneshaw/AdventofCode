@@ -1,4 +1,5 @@
 const prompts = require("prompts");
+const kolorist = require("kolorist");
 const fs = require("node:fs");
 const path = require("node:path");
 const data = require("./data.json");
@@ -39,7 +40,12 @@ const schema = [
 	const response = await prompts(schema);
 	const part = require(response.part);
 
-	fs.readFile(path.join(__dirname, response.day.data), "utf8", (err, data) => {
-		console.log(`Result: ${part.run(data)}`);
-	});
+	fs.readFile(
+		path.join(__dirname, response.day.data),
+		"utf8",
+		(err, data) => {
+			const res = part.run(data);
+			console.log(`${kolorist.bold("🏁 Result")}${kolorist.gray(":")} ${res}`);
+		}
+	);
 })();
