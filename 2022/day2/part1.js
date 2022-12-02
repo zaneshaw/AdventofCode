@@ -1,39 +1,52 @@
 module.exports = {
 	run(data) {
+		const game = {
+			alias: {
+				A: "r",
+				B: "p",
+				C: "s",
+				X: "r",
+				Y: "p",
+				Z: "s",
+			},
+			shapeBonus: {
+				r: 1,
+				p: 2,
+				s: 3,
+			},
+			outcomeBonus: {
+				lose: 0,
+				win: 6,
+				tie: 3,
+			},
+			rules: {
+				r: {
+					r: "tie",
+					p: "win",
+					s: "lose",
+				},
+				p: {
+					r: "lose",
+					p: "tie",
+					s: "win",
+				},
+				s: {
+					r: "win",
+					p: "lose",
+					s: "tie",
+				},
+			},
+		};
+
 		let points = 0;
 
 		const rounds = data.split("\r\n");
-		rounds.forEach(round => {
-			choices = round.split(" ");
-			if (choices[1] === "X") {
-				points++;
-			} else if (choices[1] === "Y") {
-				points += 2;
-			} else if (choices[1] === "Z") {
-				points += 3;
-			}
+		rounds.forEach((round) => {
+			const shapes = round.split(" ").map((shape) => game.alias[shape]);
+			points += game.shapeBonus[shapes[1]];
 
-			if (choices[0] === "A") {
-				if (choices[1] === "Y") {
-					points += 6;
-				} else if (choices[1] === "X") {
-					points += 3;
-				}
-			}
-			if (choices[0] === "B") {
-				if (choices[1] === "Z") {
-					points += 6;
-				} else if (choices[1] === "Y") {
-					points += 3;
-				}
-			}
-			if (choices[0] === "C") {
-				if (choices[1] === "X") {
-					points += 6;
-				} else if (choices[1] === "Z") {
-					points += 3;
-				}
-			}
+			const outcome = game.rules[shapes[0]][shapes[1]];
+			points += game.outcomeBonus[outcome];
 		});
 
 		return points;
