@@ -4,6 +4,11 @@
 			"name": "Calorie Counting",
 			"data": "./2022/day1/input.txt",
 			"parts": ["./2022/day1/part1.js", "./2022/day1/part2.js"]
+		},
+		{
+			"name": "Calorie Counting",
+			"data": "./2022/day2/input.txt",
+			"parts": ["./2022/day2/part1.js", "./2022/day2/part2.js"]
 		}
 	]
 }
