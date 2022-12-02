@@ -9,44 +9,21 @@ module.exports = {
 				Y: "p",
 				Z: "s",
 			},
-			shapeBonus: {
-				r: 1,
-				p: 2,
-				s: 3,
-			},
-			outcomeBonus: {
-				lose: 0,
-				win: 6,
-				tie: 3,
-			},
-			rules: {
-				r: {
-					r: "tie",
-					p: "win",
-					s: "lose",
-				},
-				p: {
-					r: "lose",
-					p: "tie",
-					s: "win",
-				},
-				s: {
-					r: "win",
-					p: "lose",
-					s: "tie",
-				},
-			},
+			shapeBonus: [1, 2, 3], // Rock, Paper, Scissors
+			outcomeBonus: [6, 3, 0], // Win, Tie, Lose
 		};
 
 		let points = 0;
+		const rounds = data.split("\r\n"); // Seperate each round by line
 
-		const rounds = data.split("\r\n");
 		rounds.forEach((round) => {
-			const shapes = round.split(" ").map((shape) => game.alias[shape]);
-			points += game.shapeBonus[shapes[1]];
+			let shapes = round.split(" "); // Seperate each shape by spacing
+			shapes = shapes.map((shape) => "rps".indexOf(game.alias[shape])); // Alias shapes for indexing
+			points += game.shapeBonus[shapes[1]]; // Add shape bonus to point sum
 
-			const outcome = game.rules[shapes[0]][shapes[1]];
-			points += game.outcomeBonus[outcome];
+			const difference = shapes[0] - shapes[1] + 1; // Get difference of shape choices
+			const outcome = ((difference % 3) + 3) % 3; // Modulo of 3 (amount of possible shapes) to get true direction (Win (0) <- Tie (1) -> Lose (2))
+			points += game.outcomeBonus[outcome]; // Add outcome bonus to point sum
 		});
 
 		return points;
