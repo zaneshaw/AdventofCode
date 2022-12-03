@@ -9,6 +9,11 @@
 			"name": "Rock Paper Scissors",
 			"data": "./2022/day2/input.txt",
 			"parts": ["./2022/day2/part1.js", "./2022/day2/part2.js"]
+		},
+		{
+			"name": "Rucksack Reorganization",
+			"data": "./2022/day3/input.txt",
+			"parts": ["./2022/day3/part1.js", "./2022/day3/part2.js"]
 		}
 	]
 }
