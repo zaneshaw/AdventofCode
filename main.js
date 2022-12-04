@@ -11,7 +11,7 @@ const schema = [
 		message: "What year?",
 		choices: Object.keys(data).map((x) => {
 			return { title: x, value: x };
-		}),
+		}).reverse(),
 	},
 	{
 		type: "select",

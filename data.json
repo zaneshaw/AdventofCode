@@ -20,5 +20,12 @@
 			"data": "./2022/day4/input.txt",
 			"parts": ["./2022/day4/part1.js", "./2022/day4/part2.js"]
 		}
+	],
+	"2015": [
+		{
+			"name": "Not Quite Lisp",
+			"data": "./2015/day1/input.txt",
+			"parts": ["./2015/day1/part1.js", "./2015/day1/part2.js"]
+		}
 	]
 }
