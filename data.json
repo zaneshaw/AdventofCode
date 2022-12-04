@@ -14,6 +14,11 @@
 			"name": "Rucksack Reorganization",
 			"data": "./2022/day3/input.txt",
 			"parts": ["./2022/day3/part1.js", "./2022/day3/part2.js"]
+		},
+		{
+			"name": "Camp Cleanup",
+			"data": "./2022/day4/input.txt",
+			"parts": ["./2022/day4/part1.js", "./2022/day4/part2.js"]
 		}
 	]
 }
