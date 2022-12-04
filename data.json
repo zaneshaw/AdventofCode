@@ -26,6 +26,11 @@
 			"name": "Not Quite Lisp",
 			"data": "./2015/day1/input.txt",
 			"parts": ["./2015/day1/part1.js", "./2015/day1/part2.js"]
+		},
+		{
+			"name": "I Was Told There Would Be No Math",
+			"data": "./2015/day2/input.txt",
+			"parts": ["./2015/day2/part1.js", "./2015/day2/part2.js"]
 		}
 	]
 }
