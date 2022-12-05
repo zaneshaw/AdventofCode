@@ -19,6 +19,11 @@
 			"name": "Camp Cleanup",
 			"data": "./2022/day4/input.txt",
 			"parts": ["./2022/day4/part1.js", "./2022/day4/part2.js"]
+		},
+		{
+			"name": "Supply Stacks",
+			"data": "./2022/day5/input.txt",
+			"parts": ["./2022/day5/part1.js", "./2022/day5/part2.js"]
 		}
 	],
 	"2015": [
