@@ -29,6 +29,11 @@
 			"name": "Tuning Trouble",
 			"data": "./2022/day6/input.txt",
 			"parts": ["./2022/day6/part1.js", "./2022/day6/part2.js"]
+		},
+		{
+			"name": "No Space Left On Device",
+			"data": "./2022/day7/input.txt",
+			"parts": ["./2022/day7/part1.js", "./2022/day7/part2.js"]
 		}
 	],
 	"2015": [
