@@ -34,6 +34,11 @@
 			"name": "No Space Left On Device",
 			"data": "./2022/day7/input.txt",
 			"parts": ["./2022/day7/part1.js", "./2022/day7/part2.js"]
+		},
+		{
+			"name": "Treetop Tree House",
+			"data": "./2022/day8/input.txt",
+			"parts": ["./2022/day8/part1.js", "./2022/day8/part2.js"]
 		}
 	],
 	"2015": [
