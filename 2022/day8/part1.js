@@ -3,71 +3,51 @@ module.exports = {
 		const grid = [];
 		let visisbleTrees = 0;
 
-		const rows = data.split("\r\n");
-		for (let i = 0; i < rows.length; i++) {
-			grid.push(rows[i].split(""));
-		}
+		// Generate grid from input
+		data.split("\r\n").forEach((row) => {
+			let cols = row.split("").map((x) => +x);
+			grid.push(cols);
+		});
 
+		// Store grid size
 		const size = { w: grid[0].length, h: grid.length };
+
+		// Iterate through each grid cell
 		for (let x = 0; x < size.w; x++) {
 			for (let y = 0; y < size.h; y++) {
-				let visisble = false;
-				// console.log(grid[y][x]);
-				if (y - 1 < 0) {
-					visisble = true;
-					// console.log("None up!");
-				}
-				if (x - 1 < 0) {
-					visisble = true;
-					// console.log("None left!");
-				}
-				if (y + 1 >= size.h) {
-					visisble = true;
-					// console.log("None down!");
-				}
-				if (x + 1 >= size.w) {
-					visisble = true;
-					// console.log("None right!");
-				}
+				let visibleDirections = 4;
 
-				let leftCheck = true;
-				let upCheck = true;
-				let rightCheck = true;
-				let downCheck = true;
-
-				if (!visisble) {
-					for (let x2 = 0; x2 < x; x2++) {
-						if (grid[y][x2] >= grid[y][x]) {
-							leftCheck = false;
-						}
+				// Check if tree is obstructed from each direction
+				for (let x2 = x - 1; x2 >= 0; x2--) { // East
+					if (grid[y][x2] >= grid[y][x]) {
+						visibleDirections--;
+						break;
 					}
-					for (let y2 = 0; y2 < y; y2++) {
-						if (grid[y2][x] >= grid[y][x]) {
-							upCheck = false;
-						}
+				}
+				for (let y2 = y - 1; y2 >= 0; y2--) { // South
+					if (grid[y2][x] >= grid[y][x]) {
+						visibleDirections--;
+						break;
 					}
-					for (let x3 = size.w - 1; x3 > x; x3--) {
-						if (grid[y][x3] >= grid[y][x]) {
-							downCheck = false;
-						}
+				}
+				for (let x3 = x + 1; x3 < size.w; x3++) { // West
+					if (grid[y][x3] >= grid[y][x]) {
+						visibleDirections--;
+						break;
 					}
-					for (let y3 = size.h - 1; y3 > y; y3--) {
-						if (grid[y3][x] >= grid[y][x]) {
-							rightCheck = false;
-						}
-					}
-
-					if (upCheck || downCheck || leftCheck || rightCheck) {
-						visisble = true;
+				}
+				for (let y3 = y + 1; y3 < size.h; y3++) { // North
+					if (grid[y3][x] >= grid[y][x]) {
+						visibleDirections--;
+						break;
 					}
 				}
 
-				if (visisble) {
-					visisbleTrees++;
-				}
+				// Check if tree is visisble from at least one direction
+				if (visibleDirections > 0) visisbleTrees++;
 			}
 		}
 
-		return JSON.stringify(visisbleTrees);
+		return visisbleTrees;
 	},
 };
