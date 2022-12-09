@@ -83,6 +83,14 @@
 					"./2022/day8/original/part2.js"
 				]
 			}
+		},
+		{
+			"name": "Rope Bridge",
+			"data": "./2022/day9/input.txt",
+			"versions": {
+				"original": ["./2022/day9/original/part1.js"],
+				"revised": ["./2022/day9/revised/part1.js"]
+			}
 		}
 	],
 	"2021": [
