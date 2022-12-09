@@ -63,6 +63,6 @@ let reqArgs = 3;
 		const endNano = end[1] + end[0] * 1000000000;
 		const endMs = endNano / 1000000;
 
-		console.log(`${k.bold("🏁 Result")}${k.gray(":")} ${res} (${endMs}ms)`);
+		console.log(`${k.bold("🏁 Result")}${k.gray(":")} ${JSON.stringify(res)} (${endMs}ms)`);
 	});
 })();

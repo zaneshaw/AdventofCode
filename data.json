@@ -41,6 +41,23 @@
 			"parts": ["./2022/day8/part1.js", "./2022/day8/part2.js"]
 		}
 	],
+	"2021": [
+		{
+			"name": "Sonar Sweep",
+			"data": "./2021/day1/input.txt",
+			"parts": ["./2021/day1/part1.js", "./2021/day1/part2.js"]
+		},
+		{
+			"name": "Dive!",
+			"data": "./2021/day2/input.txt",
+			"parts": ["./2021/day2/part1.js", "./2021/day2/part2.js"]
+		},
+		{
+			"name": "Binary Diagnostic",
+			"data": "./2021/day3/input.txt",
+			"parts": ["./2021/day3/part1.js"]
+		}
+	],
 	"2015": [
 		{
 			"name": "Not Quite Lisp",
