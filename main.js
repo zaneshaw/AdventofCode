@@ -8,15 +8,17 @@ const schema = [
 	{
 		type: "select",
 		name: "year",
-		message: "What year?",
-		choices: Object.keys(data).map((x) => {
-			return { title: x, value: x };
-		}).reverse(),
+		message: "Which year?",
+		choices: Object.keys(data)
+			.map((x) => {
+				return { title: x, value: x };
+			})
+			.reverse(),
 	},
 	{
 		type: "select",
 		name: "day",
-		message: "What day?",
+		message: "Which day?",
 		choices: (prev) =>
 			data[prev].map((x, i) => {
 				return {
@@ -27,16 +29,28 @@ const schema = [
 	},
 	{
 		type: "select",
-		name: "part",
-		message: "What part?",
+		name: "version",
+		message: "Which version?",
 		choices: (prev) =>
-			prev.parts.map((x, i) => {
+			Object.keys(prev.versions).map((x) => {
+				return {
+					title: x[0].toUpperCase() + x.substring(1),
+					value: prev.versions[x],
+				};
+			}),
+	},
+	{
+		type: "select",
+		name: "part",
+		message: "Which part?",
+		choices: (prev) =>
+			prev.map((x, i) => {
 				return { title: `Part ${i + 1}`, value: x };
 			}),
 	},
 ];
 
-let reqArgs = 3;
+let reqArgs = 4;
 
 (async () => {
 	let day;
@@ -45,7 +59,7 @@ let reqArgs = 3;
 		const args = process.argv.slice(2);
 		try {
 			day = data[args[0]][args[1] - 1];
-			partScript = require(day.parts[args[2] - 1]);
+			partScript = require(day["versions"][args[3]][args[2] - 1]);
 		} catch (err) {
 			console.error("Invalid arguments!");
 			return;
@@ -63,6 +77,10 @@ let reqArgs = 3;
 		const endNano = end[1] + end[0] * 1000000000;
 		const endMs = endNano / 1000000;
 
-		console.log(`${k.bold("🏁 Result")}${k.gray(":")} ${JSON.stringify(res)} (${endMs}ms)`);
+		console.log(
+			`${k.bold("🏁 Result")}${k.gray(":")} ${JSON.stringify(
+				res
+			)} (${endMs}ms)`
+		);
 	});
 })();

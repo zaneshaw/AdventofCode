@@ -3,42 +3,86 @@
 		{
 			"name": "Calorie Counting",
 			"data": "./2022/day1/input.txt",
-			"parts": ["./2022/day1/part1.js", "./2022/day1/part2.js"]
+			"versions": {
+				"original": [
+					"./2022/day1/original/part1.js",
+					"./2022/day1/original/part2.js"
+				]
+			}
 		},
 		{
 			"name": "Rock Paper Scissors",
 			"data": "./2022/day2/input.txt",
-			"parts": ["./2022/day2/part1.js", "./2022/day2/part2.js"]
+			"versions": {
+				"original": [
+					"./2022/day2/original/part1.js",
+					"./2022/day2/original/part2.js"
+				],
+				"revised": [
+					"./2022/day2/revised/part1.js",
+					"./2022/day2/revised/part2.js"
+				]
+			}
 		},
 		{
 			"name": "Rucksack Reorganization",
 			"data": "./2022/day3/input.txt",
-			"parts": ["./2022/day3/part1.js", "./2022/day3/part2.js"]
+			"versions": {
+				"original": [
+					"./2022/day3/original/part1.js",
+					"./2022/day3/original/part2.js"
+				]
+			}
 		},
 		{
 			"name": "Camp Cleanup",
 			"data": "./2022/day4/input.txt",
-			"parts": ["./2022/day4/part1.js", "./2022/day4/part2.js"]
+			"versions": {
+				"original": [
+					"./2022/day4/original/part1.js",
+					"./2022/day4/original/part2.js"
+				]
+			}
 		},
 		{
 			"name": "Supply Stacks",
 			"data": "./2022/day5/input.txt",
-			"parts": ["./2022/day5/part1.js", "./2022/day5/part2.js"]
+			"versions": {
+				"original": [
+					"./2022/day5/original/part1.js",
+					"./2022/day5/original/part2.js"
+				]
+			}
 		},
 		{
 			"name": "Tuning Trouble",
 			"data": "./2022/day6/input.txt",
-			"parts": ["./2022/day6/part1.js", "./2022/day6/part2.js"]
+			"versions": {
+				"original": [
+					"./2022/day6/original/part1.js",
+					"./2022/day6/original/part2.js"
+				]
+			}
 		},
 		{
 			"name": "No Space Left On Device",
 			"data": "./2022/day7/input.txt",
-			"parts": ["./2022/day7/part1.js", "./2022/day7/part2.js"]
+			"versions": {
+				"original": [
+					"./2022/day7/original/part1.js",
+					"./2022/day7/original/part2.js"
+				]
+			}
 		},
 		{
 			"name": "Treetop Tree House",
 			"data": "./2022/day8/input.txt",
-			"parts": ["./2022/day8/part1.js", "./2022/day8/part2.js"]
+			"versions": {
+				"original": [
+					"./2022/day8/original/part1.js",
+					"./2022/day8/original/part2.js"
+				]
+			}
 		}
 	],
 	"2021": [
