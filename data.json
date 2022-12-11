@@ -104,6 +104,16 @@
 					"./2022/day10/original/part2.js"
 				]
 			}
+		},
+		{
+			"name": "Monkey in the Middle",
+			"data": "./2022/day11/input.txt",
+			"versions": {
+				"original": [
+					"./2022/day11/original/part1.js",
+					"./2022/day11/original/part2.js"
+				]
+			}
 		}
 	],
 	"2021": [
