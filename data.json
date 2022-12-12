@@ -112,7 +112,8 @@
 				"original": [
 					"./2022/day11/original/part1.js",
 					"./2022/day11/original/part2.js"
-				]
+				],
+				"revised": ["./2022/day11/revised/part1.js"]
 			}
 		}
 	],
